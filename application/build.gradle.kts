@@ -27,3 +27,12 @@ plugins {
 val properties = Properties()
 val file: File = project.rootProject.file("local.properties")
 if (file.exists()) file.inputStream().use { properties.load(it) }
+
+
+tasks.register("check") {
+    dependsOn(subprojects.mapNotNull { project ->
+        project.tasks.findByName("check")?.run {
+            project.absoluteProjectPath("check")
+        }
+    })
+}

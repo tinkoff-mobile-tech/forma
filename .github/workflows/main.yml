@@ -1,7 +1,7 @@
 
-name: Android CI
+name: Run build checks
 
-on: [push]
+on: [ push, workflow_dispatch ]
 
 jobs:
   build:
@@ -16,4 +16,4 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Gradle
-      run: cd application && ./gradlew build test -s --console=plain
+      run: ./gradlew checkApp -s --console=plain
