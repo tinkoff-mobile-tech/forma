@@ -16,4 +16,4 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Gradle
-      run: ./gradlew checkApp -s --console=plain
+      run: ./gradlew build -s --console=plain
