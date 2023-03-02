@@ -32,7 +32,7 @@ infix operator fun FormaDependency.plus(dep: FormaDependency): MixedDependency =
     dependency.files + dep.dependency.files
 )
 
-inline fun <reified T : FormaDependency> emptyDependency(): T = when(T::class) {
+inline fun <reified T : FormaDependency> emptyDependency(): T = when (T::class) {
     FormaDependency::class -> EmptyDependency as T
     NamedDependency::class -> NamedDependency() as T
     FileDependency::class -> FileDependency() as T
@@ -64,9 +64,10 @@ internal fun FormaDependency.hasConfigType(configType: ConfigurationType): Boole
     return false
 }
 
-fun deps(vararg names: String): NamedDependency = transitiveDeps(names = *names, transitive = false)
+fun deps(vararg names: String): NamedDependency = transitiveDeps(names = names, transitive = false)
 
-fun platform(vararg names: String): PlatformDependency = transitivePlatform(*names, transitive = false)
+fun platform(vararg names: String): PlatformDependency =
+    transitivePlatform(*names, transitive = false)
 
 fun transitivePlatform(vararg names: String, transitive: Boolean = true): PlatformDependency =
     PlatformDependency(names.toList().map { PlatformSpec(it, Implementation, transitive) })

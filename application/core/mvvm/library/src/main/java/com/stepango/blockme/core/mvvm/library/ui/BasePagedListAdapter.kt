@@ -29,8 +29,8 @@ abstract class BasePagedListAdapter<T>(
     itemsSame: (T, T) -> Boolean,
     contentsSame: (T, T) -> Boolean
 ) : PagedListAdapter<T, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<T>() {
-    override fun areItemsTheSame(old: T, new: T): Boolean = itemsSame(old, new)
-    override fun areContentsTheSame(old: T, new: T): Boolean = contentsSame(old, new)
+    override fun areItemsTheSame(old: T & Any, new: T & Any): Boolean = itemsSame(old, new)
+    override fun areContentsTheSame(old: T & Any, new: T & Any): Boolean = contentsSame(old, new)
 }) {
 
     @VisibleForTesting(otherwise = PRIVATE)

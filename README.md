@@ -69,10 +69,10 @@ plugins {
 // Configure shared aspects of your android Project
 androidProjectConfiguration(
     minSdk = 21,
-    targetSdk = 29,
-    compileSdk = 29,
-    kotlinVersion = "1.4.10",
-    agpVersion = "4.0.0",
+    targetSdk = 31,
+    compileSdk = 31,
+    kotlinVersion = "1.8.10",
+    agpVersion = "7.4.2",
     versionCode = 1,
     versionName = "1.0"
 )

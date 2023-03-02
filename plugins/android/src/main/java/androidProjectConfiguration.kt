@@ -62,48 +62,6 @@ fun ScriptHandlerScope.androidProjectConfiguration(
     }
 }
 
-@Deprecated("Old approach to configuration, use ScriptHandlerScope Extension")
-fun Project.androidProjectConfiguration(
-    minSdk: Int,
-    targetSdk: Int,
-    compileSdk: Int,
-    repositories: RepositoryHandler.() -> Unit = {},
-    dataBinding: Boolean = false,
-    validateManifestPackages: Boolean = false,
-    generateMissedManifests: Boolean = false,
-    javaVersionCompatibility: JavaVersion = JavaVersion.VERSION_1_8, // Java/Kotlin configuration
-    mandatoryOwners: Boolean = false,
-) {
-//    Forma.buildScriptConfiguration(this, extraPlugins)
-//    with(project) {
-
-        /**
-         * Default Android project clean task implementation
-         */
-        tasks.register("clean", Delete::class) {
-            delete(project.buildDir)
-        }
-
-        val configuration = FormaConfiguration(
-            minSdk = minSdk,
-            targetSdk = targetSdk,
-            compileSdk = compileSdk,
-            // we don't need check properties for exist, we read it successfully in forma configuration
-            kotlinVersion = properties["forma.kotlinVersion"]!!.toString(),
-            agpVersion = properties["forma.agpVersion"]!!.toString(),
-            repositories = repositories,
-            dataBinding = dataBinding,
-            generateMissedManifests = generateMissedManifests,
-            validateManifestPackages = validateManifestPackages,
-            javaVersionCompatibility = javaVersionCompatibility,
-            mandatoryOwners = mandatoryOwners
-        )
-
-        Forma.store(configuration)
-
-//    }
-}
-
 /**
  * Singleton project configuration store
  */
