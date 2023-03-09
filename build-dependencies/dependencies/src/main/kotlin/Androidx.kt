@@ -8,7 +8,11 @@ object androidx {
     )
     private val collection = deps(
         annotation,
-        "androidx.collection:collection:${versions.androidx.collection}".dep
+        "androidx.collection:collection:${versions.androidx.collection}".dep,
+    )
+    private val collection_ktx = deps(
+        collection,
+        "androidx.collection:collection-ktx:${versions.androidx.collection}".dep,
     )
     private val versionedparcelable = deps(
         "androidx.versionedparcelable:versionedparcelable:${versions.androidx.versionedparcelable}".dep,
@@ -262,7 +266,7 @@ object androidx {
     private val navigation_common_ktx = deps(
         "androidx.navigation:navigation-common-ktx:${versions.androidx.navigation}".dep,
         annotation,
-        collection,
+        collection_ktx,
         core
     )
 
