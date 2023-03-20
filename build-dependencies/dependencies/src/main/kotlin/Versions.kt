@@ -32,7 +32,7 @@ object versions {
         const val savedstate = "1.1.0"
         const val slidingpanelayout = "1.0.0"
         const val swiperefreshlayout = "1.0.0"
-        const val sqlite = "2.0.1"
+        const val sqlite = "2.2.0"
         const val paging = "2.1.2"
         const val recyclerview = "1.1.0"
         const val room = "2.4.0"
