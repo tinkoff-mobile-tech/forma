@@ -16,12 +16,10 @@ plugins {
 
 
 include(":toggle-widget")
-include(":feature:home:res")
 include(":feature:characters:list:databinding")
 include(":feature:characters:detail:api")
 include(":feature:characters:detail:res")
 include(":feature:characters:detail:databinding")
-include(":feature:home:databinding")
 include(":root-res")
 include(":core:theme:res")
 include(":common:placeholder:res")
@@ -31,6 +29,8 @@ include(
 
     ":feature:home:api",
     ":feature:home:impl",
+    ":feature:home:res",
+    ":feature:home:viewbinding",
     ":feature:characters:core:api",
     ":feature:characters:core:impl",
     ":feature:characters:list:api",
