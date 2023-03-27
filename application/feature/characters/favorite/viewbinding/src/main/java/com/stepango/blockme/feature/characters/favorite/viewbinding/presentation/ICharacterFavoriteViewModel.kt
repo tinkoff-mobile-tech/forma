@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.stepango.blockme.feature.characters.favorite.databinding.presentation
+package com.stepango.blockme.feature.characters.favorite.viewbinding.presentation
 
 import androidx.lifecycle.LiveData
 import com.stepango.blockme.feature.characters.core.api.domain.model.ICharacter
