@@ -31,7 +31,7 @@ class CharacterDetailViewModel @Inject constructor(
         private val marvelRepository: MarvelRepository,
         private val getCharacterFavoriteUseCase: IGetCharacterFavoriteUseCase,
         private val setCharacterFavoriteUseCase: ISetCharacterFavoriteUseCase,
-) : ViewModel(), ICharacterDetailViewModel {
+) : ICharacterDetailViewModel, ViewModel() {
 
     private val _data = MutableLiveData<ICharacter>()
     override val data: LiveData<ICharacter>

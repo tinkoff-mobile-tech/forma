@@ -1,7 +1,6 @@
 viewBinding(
     packageName = "com.stepango.blockme.feature.favorite.viewbinding",
     dependencies = deps(
-        google.inject,
         google.material,
         androidx.navigation,
         androidx.appcompat,
