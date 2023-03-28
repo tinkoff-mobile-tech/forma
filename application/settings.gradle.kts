@@ -40,7 +40,7 @@ include(
     ":feature:characters:favorite:api",
     ":feature:characters:favorite:res",
     ":feature:characters:favorite:impl",
-    ":feature:characters:favorite:databinding",
+    ":feature:characters:favorite:viewbinding",
 
     ":core:di:library",
     ":core:network:library",

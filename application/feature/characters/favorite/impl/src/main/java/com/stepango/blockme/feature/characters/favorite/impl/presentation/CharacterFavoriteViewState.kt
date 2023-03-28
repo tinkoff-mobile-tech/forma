@@ -17,7 +17,7 @@
 package com.stepango.blockme.feature.characters.favorite.impl.presentation
 
 import com.stepango.blockme.core.mvvm.library.ui.BaseViewState
-import com.stepango.blockme.feature.characters.favorite.databinding.presentation.ICharacterFavoriteViewState
+import com.stepango.blockme.feature.characters.favorite.viewbinding.presentation.ICharacterFavoriteViewState
 
 sealed class CharacterFavoriteViewState : BaseViewState, ICharacterFavoriteViewState {
 
