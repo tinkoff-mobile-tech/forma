@@ -16,8 +16,6 @@ import tools.forma.android.utils.register
  * @param targetSdk is target android sdk
  * @param compileSdk SDK version used to compile Android App
  * @param versionCode is version code of the App
- * @param validateManifestPackages enabling validation of manifests during configuration
- * @param generateMissedManifests enabling generation missing manifests during configuration
  */
 fun ScriptHandlerScope.androidProjectConfiguration(
     project: Project,
@@ -26,8 +24,6 @@ fun ScriptHandlerScope.androidProjectConfiguration(
     compileSdk: Int,
     repositories: RepositoryHandler.() -> Unit = {},
     dataBinding: Boolean = false,
-    validateManifestPackages: Boolean = false,
-    generateMissedManifests: Boolean = false,
     javaVersionCompatibility: JavaVersion = JavaVersion.VERSION_1_8, // Java/Kotlin configuration
     mandatoryOwners: Boolean = false,
     extraPlugins: List<Any>
@@ -51,9 +47,6 @@ fun ScriptHandlerScope.androidProjectConfiguration(
             agpVersion = properties["forma.agpVersion"]!!.toString(),
             repositories = repositories,
             dataBinding = dataBinding,
-            generateMissedManifests = generateMissedManifests,
-            validateManifestPackages = validateManifestPackages,
-            javaVersionCompatibility = javaVersionCompatibility,
             mandatoryOwners = mandatoryOwners
         )
 
