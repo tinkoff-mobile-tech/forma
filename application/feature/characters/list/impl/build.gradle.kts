@@ -12,21 +12,21 @@ impl(
         google.material,
         google.dagger,
         jakewharton.timber,
-        kotlinx.coroutines_core
-
+        kotlinx.coroutines_core,
+        viewbinding.viewpropertydelegate,
     ) + deps(
-        project(":feature:characters:core:api"),
-        project(":feature:characters:list:api"),
-        project(":feature:characters:list:databinding"),
+        target(":feature:characters:core:api"),
+        target(":feature:characters:list:api"),
+        target(":feature:characters:list:viewbinding"),
 
-        project(":core:di:library"),
-        project(":core:theme:android-util"),
-        project(":core:mvvm:library"),
-        project(":core:network:library"),
-        project(":core:navigation:library"),
+        target(":core:di:library"),
+        target(":core:theme:android-util"),
+        target(":core:mvvm:library"),
+        target(":core:network:library"),
+        target(":core:navigation:library"),
 
-        project(":common:util"),
-        project(":common:extensions:android-util"),
-        project(":common:extensions:databinding-adapter")
+        target(":common:util"),
+        target(":common:extensions:android-util"),
+        target(":common:recyclerview:widget")
     )
 )
