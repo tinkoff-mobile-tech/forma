@@ -15,7 +15,6 @@ import tools.forma.android.utils.register
  * @param minSdk is min android sdk
  * @param targetSdk is target android sdk
  * @param compileSdk SDK version used to compile Android App
- * @param versionCode is version code of the App
  */
 fun ScriptHandlerScope.androidProjectConfiguration(
     project: Project,
@@ -23,7 +22,6 @@ fun ScriptHandlerScope.androidProjectConfiguration(
     targetSdk: Int,
     compileSdk: Int,
     repositories: RepositoryHandler.() -> Unit = {},
-    dataBinding: Boolean = false,
     javaVersionCompatibility: JavaVersion = JavaVersion.VERSION_1_8, // Java/Kotlin configuration
     mandatoryOwners: Boolean = false,
     extraPlugins: List<Any>
@@ -45,9 +43,8 @@ fun ScriptHandlerScope.androidProjectConfiguration(
             // we don't need check properties for exist, we read it successfully in forma configuration
             kotlinVersion = properties["forma.kotlinVersion"]!!.toString(),
             agpVersion = properties["forma.agpVersion"]!!.toString(),
-            javaVersionCompatibility = javaVersionCompatibility,
             repositories = repositories,
-            dataBinding = dataBinding,
+            javaVersionCompatibility = javaVersionCompatibility,
             mandatoryOwners = mandatoryOwners
         )
 

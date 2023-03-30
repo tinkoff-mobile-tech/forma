@@ -10,7 +10,7 @@ androidLibrary(
         androidx.navigation,
         androidx.viewmodel,
         androidx.paging,
-        dataBinding.runtime,
+        viewbinding.viewBinding,
         google.dagger,
         jakewharton.timber
     ),
