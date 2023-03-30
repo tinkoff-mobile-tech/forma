@@ -14,7 +14,6 @@ androidBinary(
         target(":feature:characters:list:impl"),
         target(":feature:characters:detail:api"),
         target(":feature:characters:detail:impl"),
-        target(":feature:characters:detail:databinding"),
         target(":feature:characters:favorite:api"),
         target(":feature:characters:favorite:impl"),
 
