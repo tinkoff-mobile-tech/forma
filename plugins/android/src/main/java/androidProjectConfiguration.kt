@@ -45,6 +45,7 @@ fun ScriptHandlerScope.androidProjectConfiguration(
             // we don't need check properties for exist, we read it successfully in forma configuration
             kotlinVersion = properties["forma.kotlinVersion"]!!.toString(),
             agpVersion = properties["forma.agpVersion"]!!.toString(),
+            javaVersionCompatibility = javaVersionCompatibility,
             repositories = repositories,
             dataBinding = dataBinding,
             mandatoryOwners = mandatoryOwners
