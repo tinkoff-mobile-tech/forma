@@ -43,7 +43,7 @@ fun Project.viewBinding(
     val libraryFeatureConfiguration = AndroidLibraryFeatureConfiguration(
         packageName = packageName,
         consumerMinificationFiles = consumerMinificationFiles,
-        viewBinding = true
+        buildFeatures = libraryBuildFeatures(viewBinding = true),
     )
     applyFeatures(
         androidLibraryFeatureDefinition(libraryFeatureConfiguration),

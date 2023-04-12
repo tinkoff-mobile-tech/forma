@@ -1,5 +1,6 @@
 import org.gradle.api.Project
 import tools.forma.android.feature.AndroidLibraryFeatureConfiguration
+import tools.forma.android.feature.LibraryBuildFeaturesContainer
 import tools.forma.android.feature.androidLibraryFeatureDefinition
 import tools.forma.android.feature.applyFeatures
 import tools.forma.android.feature.kaptConfigurationFeature
@@ -28,7 +29,7 @@ fun Project.impl(
     dependencies: FormaDependency = emptyDependency(),
     testDependencies: NamedDependency = emptyDependency(),
     androidTestDependencies: NamedDependency = emptyDependency(),
-    viewBinding: Boolean = false,
+    buildFeatures: LibraryBuildFeaturesContainer? = null,
     testInstrumentationRunner: String = androidJunitRunner,
     buildConfiguration: BuildConfiguration = BuildConfiguration(),
     consumerMinificationFiles: Set<String> = emptySet(),
@@ -39,11 +40,11 @@ fun Project.impl(
     val libraryFeatureConfiguration = AndroidLibraryFeatureConfiguration(
         packageName,
         buildConfiguration,
+        buildFeatures = buildFeatures,
         testInstrumentationRunner,
         consumerMinificationFiles,
         manifestPlaceholders,
         selfValidator = validator(ImplTargetTemplate),
-        viewBinding = viewBinding
     )
     applyFeatures(
         androidLibraryFeatureDefinition(libraryFeatureConfiguration),
