@@ -1,5 +1,6 @@
 import org.gradle.api.Project
 import tools.forma.android.feature.AndroidBinaryFeatureConfiguration
+import tools.forma.android.feature.ApplicationBuildFeaturesContainer
 import tools.forma.android.feature.androidBinaryFeatureDefinition
 import tools.forma.android.feature.applyFeatures
 import tools.forma.android.owner.NoOwner
@@ -33,6 +34,7 @@ fun Project.androidBinary(
     versionName: String,
     dependencies: FormaDependency = emptyDependency(),
     buildConfiguration: BuildConfiguration = BuildConfiguration(),
+    buildFeatures: ApplicationBuildFeaturesContainer? = null,
     testInstrumentationRunner: String = androidJunitRunner,
     consumerMinificationFiles: Set<String> = emptySet(),
     manifestPlaceholders: Map<String, Any> = emptyMap()
@@ -47,6 +49,7 @@ fun Project.androidBinary(
         versionCode,
         versionName,
         buildConfiguration,
+        buildFeatures = buildFeatures,
         testInstrumentationRunner,
         consumerMinificationFiles,
         manifestPlaceholders

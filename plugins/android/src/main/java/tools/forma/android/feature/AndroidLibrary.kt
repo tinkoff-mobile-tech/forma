@@ -12,10 +12,10 @@ import tools.forma.validation.validator
 class AndroidLibraryFeatureConfiguration(
     val packageName: String,
     val buildConfiguration: BuildConfiguration = BuildConfiguration(),
+    val buildFeatures: LibraryBuildFeaturesContainer? = null,
     val testInstrumentationRunnerClass: String = androidJunitRunner,
     val consumerMinificationFiles: Set<String> = emptySet(),
     val manifestPlaceholders: Map<String, Any> = emptyMap(),
-    val viewBinding: Boolean = false,
     val selfValidator: Validator = validator(LibraryTargetTemplate)
 )
 
@@ -44,7 +44,22 @@ fun androidLibraryFeatureDefinition(
             buildTypes.applyFrom(feature.buildConfiguration)
             compileOptions.applyFrom(formaConfiguration)
 
-            buildFeatures.viewBinding = feature.viewBinding
+            feature.buildFeatures?.let { container ->
+                buildFeatures {
+                    dataBinding = container.dataBinding
+                    mlModelBinding = container.mlModelBinding
+                    aidl = container.aidl
+                    buildConfig = container.buildConfig
+                    compose = container.compose
+                    prefab = container.prefab
+                    renderScript = container.renderScript
+                    resValues = container.resValues
+                    shaders = container.shaders
+                    viewBinding = container.viewBinding
+                    androidResources = container.androidResources
+                    prefabPublishing = container.prefabPublishing
+                }
+            }
         }
     }
 )

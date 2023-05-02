@@ -14,6 +14,7 @@ data class AndroidBinaryFeatureConfiguration(
     val versionCode: Int,
     val versionName: String,
     val buildConfiguration: BuildConfiguration,
+    val buildFeatures: ApplicationBuildFeaturesContainer?,
     val testInstrumentationRunnerClass: String,
     val consumerMinificationFiles: Set<String>,
     val manifestPlaceholders: Map<String, Any> = emptyMap(),
@@ -43,6 +44,21 @@ fun androidBinaryFeatureDefinition(
 
             buildTypes.applyFrom(configuration.buildConfiguration)
             compileOptions.applyFrom(formaConfiguration)
+
+            configuration.buildFeatures?.let { container ->
+                buildFeatures {
+                    dataBinding = container.dataBinding
+                    mlModelBinding = container.mlModelBinding
+                    aidl = container.aidl
+                    buildConfig = container.buildConfig
+                    compose = container.compose
+                    prefab = container.prefab
+                    renderScript = container.renderScript
+                    resValues = container.resValues
+                    shaders = container.shaders
+                    viewBinding = container.viewBinding
+                }
+            }
 
             /**
              * Workaround for compilation time issue with duplicate names for META-INF files
